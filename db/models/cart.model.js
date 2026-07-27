@@ -22,7 +22,10 @@ const cartSchema = new Schema({
         required:true,
         unique:true
     },
-    products:[cartItemsSchema]
+    products:{
+        type:[cartItemsSchema],
+        default:[]
+    },
 },{
     timestamps: true,
     versionKey: false
