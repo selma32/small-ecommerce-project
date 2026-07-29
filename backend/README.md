@@ -1,1 +1,1 @@
-# small-ecommerce-project
+# small-ecommerce-project (backend)
