@@ -26,7 +26,7 @@ async function addToCart(req, res) {
             return res.json({message: "Added to cart", cart})
         }
 
-        let existingItem = cartModel.products.find(item => item.product.toString() === productId)
+        let existingItem = cart.products.find(item => item.product.toString() === productId)
         if (existingItem) existingItem.amount += Number(amount)
             cart.products.push({product:productId, amount})
         
