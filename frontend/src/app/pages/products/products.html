@@ -1,0 +1,7 @@
+<div class="card-container">
+  @for (product of products; track product._id) {
+    <app-product-card [product]="product" />
+  } @empty {
+   <p>No products found.</p>
+  }
+</div>

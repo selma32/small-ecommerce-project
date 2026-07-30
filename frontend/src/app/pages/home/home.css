@@ -1,0 +1,13 @@
+h1{
+  color:rgb(112, 46, 20);
+}
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 80px 20px;
+  background-color: rgb(252, 225, 60); /* Solid deep blue color */
+  color:rgb(249, 243, 200);
+  text-align: center;
+}
