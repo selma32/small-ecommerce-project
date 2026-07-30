@@ -14,6 +14,9 @@
                 @if(isLoggedIn){
                     <li><a routerLink="cart" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
                             <i class="fa-solid fa-bag-shopping fa-xl"></i>
+                            @if (cartCount() > 0) {
+                                <span class="cart-badge">{{ cartCount() }}</span>
+                            }
                         </a>
                     </li>
                     <li><a id="logOut" (click)="logOut()" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">Log Out</a></li>

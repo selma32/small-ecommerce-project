@@ -17,8 +17,8 @@ async function addToCart(req, res) {
         let {productId, amount} = req.body
 
         let product = await productModel.findById(productId)
-        if(!product) return res.json({message: "Product not found"})
-        if (product.stock < amount) return res.json({message:"Not enough stock"})
+        if(!product) return res.status(404).json({message: "Product not found"})
+        if (product.stock < amount) return res.status(403).json({message:"Not enough stock"})
 
         let cart = await cartModel.findOne({owner:req.decoded._id})
         if (!cart) {
@@ -27,13 +27,16 @@ async function addToCart(req, res) {
         }
 
         let existingItem = cart.products.find(item => item.product.toString() === productId)
-        if (existingItem) existingItem.amount += Number(amount)
+        if (existingItem){ 
+            existingItem.amount += Number(amount)
+        }else{
             cart.products.push({product:productId, amount})
-        
+        }
+            
         await cart.save()
         res.json({message: "Added to cart", cart})
     }catch(err){
-        res.json({message: "Failed to add to cart", error: err.message})
+        res.status(401).json({message: "Failed to add to cart", error: err.message})
     }
 }
 

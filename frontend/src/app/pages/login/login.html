@@ -16,4 +16,9 @@
         <button type="submit" class="submit-btn">Log In</button>
 
     </form>
+
+    @if (errorMessage()) {
+        <p class="error-message">{{ errorMessage() }}</p>
+    }
+    
 </fieldset>

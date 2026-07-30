@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -13,6 +13,8 @@ export class Register {
   private _authService = inject(AuthService)
   private router = inject(Router)
 
+  errorMessage = signal<string | null>(null);
+
   register = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.maxLength(20)]),
     age: new FormControl('', [Validators.max(70), Validators.min(16)]),
@@ -26,8 +28,8 @@ export class Register {
         next:(res) =>{
           console.log(res);
           this.router.navigate(['/login'])
-        },error:(res)=>{
-          console.log(res);
+        },error:(err)=>{
+          this.errorMessage.set(err.error?.message || 'Something went wrong, please try again');
         }
       })
     }

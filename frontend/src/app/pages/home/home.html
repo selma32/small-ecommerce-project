@@ -1,16 +1,36 @@
   <header class="hero-section">
     <div class="hero-container">
-      <h1 class="hero-title">Shop All</h1>
-      <p class="hero-subtitle">Get all your daily needs.</p>
+      <h4 class="hero-title">Shop All</h4>
+      <p class="hero-subtitle">Get All Your Daily Needs.</p>
       
       <app-search></app-search>
 
     </div>
   </header>
 
-  <div>
-    <h1>Trending now</h1>
+
+
+  <div class="news-section">
+    <h2>We Offer</h2>
     <div class="card-container">
+      @for (item of news(); track item.title) {
+        <div class="n-card">
+          <img [src]="item.imgPath" alt="{{ item.title }}">
+          <h3>{{ item.title }}</h3>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="trending-section">
+    <h2>Trending Now</h2>
+    <div class="card-container trending-container">
+
+      @for (product of trendingProducts(); track product._id) {
+        <app-product-card [product]="product" />
+      } @empty {
+        <p>No trending products yet.</p>
+      }
 
     </div>
   </div>

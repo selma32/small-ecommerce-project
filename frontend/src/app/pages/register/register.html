@@ -25,4 +25,9 @@
         <button (click)="submitForm()" type="submit" class="submit-btn">Register</button>
 
     </form>
+
+    @if (errorMessage()) {
+        <p class="error-message">{{ errorMessage() }}</p>
+    }
+    
 </fieldset>

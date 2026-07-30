@@ -1,6 +1,7 @@
 import { Component, inject, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 
 @Component({
@@ -15,6 +16,9 @@ import { isPlatformBrowser } from '@angular/common';
 export class Navbar {
   private router = inject(Router);
   private platformId = inject(PLATFORM_ID);
+
+  private _cartService = inject(CartService);
+  cartCount = this._cartService.cartCount;
 
   get isLoggedIn(): boolean {
     if (!isPlatformBrowser(this.platformId)) {

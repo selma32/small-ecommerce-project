@@ -1,6 +1,13 @@
+<a>
+  <div class="card">
 
-<div class="card">
   <img [src]="product().img" alt="{{ product().name }}">
-  <h3>{{ product().title }}</h3>
-  <p>{{ product().price }}</p>
-</div>
+  <div class="card-content">
+    <h3 class="name">{{ product().name }}</h3>
+    <p class="price">{{ product().price }} EGP</p>
+  </div>
+
+  <button class="addToCartBtn" (click)="addToCart($event)">Add to cart</button>
+  
+ </div>
+</a>

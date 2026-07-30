@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-}
 
 body{
     background-color: rgb(248, 247, 233) ;
@@ -43,12 +37,16 @@ header{
 }
 
 .nav-actions {
-    list-style: none;
-    gap: 2em;
+  list-style: none;
+  gap: 2em;
+  display: flex;
+  align-items: center;
+  justify-self: end;
 }
 
 .nav-links li, .nav-actions li{
     display: inline-block;
+    font-weight: 800;
 }
 
 .nav-links li a, .nav-actions li a{
@@ -61,11 +59,6 @@ header{
     cursor: pointer;
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
-  justify-self: end;
-}
 
 .fa-bag-shopping {
   color: rgb(112, 46, 20);
