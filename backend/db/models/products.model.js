@@ -16,7 +16,8 @@ const productsSchema = new Schema({
         required:true,
         min:0,
     },
-    img:String
+    img:String,
+    description:String,
 },{
     timestamps:true,
     versionKey:false

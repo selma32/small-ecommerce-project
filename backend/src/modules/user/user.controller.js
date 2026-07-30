@@ -28,8 +28,7 @@ export async function login(req,res){
         if (!foundUser.isVerified) return res.json({message:"please verify your account"})
         let matchedPass = bcrypt.compareSync(req.body.password, foundUser.password)
         let token = jwt.sign({_id:foundUser._id, role: foundUser.role}, "nti")
-        console.log(token)
-        if (matchedPass) return res.json({message:"login successful"})
+        if (matchedPass) return res.json({message:"login successful", token})
         res.json({message:"Email or password is incorrect"})
     }else{
         res.json({message:"User not found, please sign up"})

@@ -7,6 +7,7 @@ const userSchema = new Schema({
         required:true,
         unique:true
     },
+    age:Number,
     password:String,
     role:{
         type:String,
