@@ -1,1 +1,31 @@
-<p>product-details works!</p>
+@if (product()) {
+  <div class="details-container">
+    <img [src]="product().img" [alt]="product().name">
+
+    <div class="details-content">
+      <h1>{{ product().name }}</h1>
+      <p class="price">{{ product().price }} EGP</p>
+      <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda ipsum porro excepturi nihil dolores ea totam, voluptas, voluptatum !</p>
+      <p class="stock">
+        @if (product().stock > 0) {
+          In stock
+        } @else {
+          Out of stock
+        }
+      </p>
+
+      <button class="addToCartBtn" (click)="addToCart()" [disabled]="product().stock === 0">
+        Add to cart
+      </button>
+    </div>
+    
+  </div>
+} @else if (notFound()) {
+  <div class="not-found">
+    <p>Product not found.</p>
+  </div>
+} @else {
+  <div class="loading">
+    <p>Loading...</p>
+  </div>
+}

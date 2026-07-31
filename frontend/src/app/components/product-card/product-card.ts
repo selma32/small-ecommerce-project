@@ -1,11 +1,11 @@
 import { Component, inject, input } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ToastService } from '../../services/toast.service';
-import { RouterLink } from '@angular/router';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-product-card',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css',
 })
@@ -13,18 +13,23 @@ export class ProductCard {
   product = input.required<any>();
 
   private _cartService = inject(CartService);
-  private _toastServce = inject(ToastService)
+  private _toastServcie = inject(ToastService);
+  private _modalService = inject(ModalService)
+
+  viewDetails() {
+    console.log('clicked, product id:', this.product()._id);
+    this._modalService.open(this.product()._id);
+  }
 
   addToCart(event:Event){
-    event.preventDefault();
     event.stopPropagation();
 
     this._cartService.addToCart(this.product()._id,1).subscribe({
       next:()=>{
         this._cartService.refreshCart();
-        this._toastServce.show("Added to cart")
+        this._toastServcie.show("Added to cart")
       },error:(err)=>{
-        this._toastServce.show(err.error?.message || 'Failed to add to cart', 'error');
+        this._toastServcie.show(err.error?.message || 'Failed to add to cart', 'error');
       }
     })
   }

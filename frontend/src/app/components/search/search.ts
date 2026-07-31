@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   templateUrl: './search.html',
   styleUrl: './search.css',
 })
-export class Search {}
+
+export class Search {
+
+  search(event:any) {
+    event.preventDefault();
+
+
+    
+    return false;
+  }
+}
