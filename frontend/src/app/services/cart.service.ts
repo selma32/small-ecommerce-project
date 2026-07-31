@@ -27,10 +27,6 @@ export class CartService {
     return this.api.delete(`http://localhost:3000/cart/${productId}`);
   }
 
-  checkout() {
-    return this.api.post(`http://localhost:3000/cart/checkout`, {});
-  }
-
   refreshCart() {
     this.getCart().subscribe({
       next: (res: any) => {

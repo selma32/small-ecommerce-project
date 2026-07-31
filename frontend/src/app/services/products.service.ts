@@ -13,6 +13,9 @@ export class ProductsService {
   getAllProducts():Observable<any>{
     return this.api.get<any[]>("http://localhost:3000/products");
   }
+  getProductById(id: string){
+    return this.api.get(`http://localhost:3000/product/${id}`)
+  }
 
 }
 

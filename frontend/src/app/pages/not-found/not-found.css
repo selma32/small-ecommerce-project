@@ -1,4 +1,17 @@
-:host {
-  margin: 2em;
-  color: rgb(5, 40, 70);
+.notFound{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 10%;
+  gap: 2em;
+}
+.notFound img{
+  position: relative;
+  width: 200px;
+  margin-left: -.8em;
+}
+.notFound h1{
+  font-size: 1.5em;
+  color: rgb(112, 46, 20);
 }

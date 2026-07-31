@@ -1,3 +1,6 @@
+a{
+    text-decoration: none;
+}
 .card{
     width: 280px;
     padding: 8px;
@@ -26,7 +29,7 @@
 
 .card-content{
     margin: 1em;
-    cursor: text;
+    cursor: pointer;
     color: rgb(112, 46, 20);
 }
 

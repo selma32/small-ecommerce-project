@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-cart',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
@@ -31,12 +33,6 @@ export class Cart {
     });
   }
 
-  checkout() {
-    this._cartService.checkout().subscribe({
-      next: () => this._cartService.refreshCart(),
-      error: (err) => console.log(err.error?.message)
-    });
-  }
 
   get total(): number {
     return this.cartItems().reduce((sum, item) => sum + (item.product.price * item.amount), 0);

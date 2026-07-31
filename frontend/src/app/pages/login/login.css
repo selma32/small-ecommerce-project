@@ -3,8 +3,10 @@
   align-items: center;
   justify-content: center;
   min-height: 100%;
+  background-color: rgb(249, 243, 200);
 }
 fieldset{
+  background-color: white;
   max-width: 400px;
   padding: 2em;
   padding-top: 1em;
@@ -36,6 +38,7 @@ form{
   font-size: 0.9rem;
   font-weight: 500;
   color: rgb(112, 46, 20);
+  
 }
 .input-group input{
   padding: 1em;

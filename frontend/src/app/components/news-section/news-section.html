@@ -1,0 +1,11 @@
+  <div class="news-section">
+    <h2>We Offer</h2>
+    <div class="card-container">
+      @for (item of news(); track item.title) {
+        <div class="n-card">
+          <img [src]="item.imgPath" alt="{{ item.title }}">
+          <h3>{{ item.title }}</h3>
+        </div>
+      }
+    </div>
+  </div>
