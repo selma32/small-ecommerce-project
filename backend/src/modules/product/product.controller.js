@@ -5,6 +5,15 @@ function addProduct(req, res){
     res.json({message:"Products added successfully"})
 }
 
+async function getProduct(req, res){
+    let product = await productModel.findById(req.params.id);
+    if(!product){
+        return res.status(404).json({message: "Product not found"})
+    }else{
+        res.json({message:"product",product})
+    }
+}
+
 async function getProducts(req, res){
     let product = await productModel.find()
     res.json({message:"all products", product})
@@ -32,6 +41,7 @@ async function deleteProduct(req, res) {
 
 export{
     addProduct,
+    getProduct,
     getProducts,
     editProduct,
     deleteProduct
